@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Kelompok — Pembagian Kelompok</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="logo-circle"></div>
+      <h1>Pilih Kelompok Online</h1>
+      <div class="spacer"></div>
+      <button id="theme-toggle" class="small-btn" aria-label="Toggle theme">🌓</button>
+    </header>
+
+    <section class="user-input">
+      <label for="name">Nama Peserta</label>
+      <input id="name" type="text" placeholder="Masukkan nama" autocomplete="off" />
+    </section>
+
+    <section id="groups" class="groups-grid" aria-live="polite"></section>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+</body>
+</html>
