@@ -1,0 +1,69 @@
+/* RESET */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* MOBILE-FIRST */
+.group-box, .admin-group-box {
+  border: 1px solid #aaa;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* DARK MODE OTOMATIS MENGIKUTI HP */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: #eee;
+  }
+
+  .group-box, .admin-group-box {
+    background: #1c1c1c;
+    border-color: #444;
+  }
+
+  button {
+    background: #2d2d2d;
+    color: #eee;
+    border: 1px solid #555;
+  }
+
+  input {
+    background: #222;
+    color: #eee;
+    border: 1px solid #555;
+  }
+}
+
+/* RESPONSIVE (HP LEBAR KECIL) */
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+}
