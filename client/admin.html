@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Pembagian Kelompok</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="logo-circle"></div>
+      <h1>Admin Panel</h1>
+      <div class="spacer"></div>
+      <button id="theme-toggle" class="small-btn" aria-label="Toggle theme">🌓</button>
+    </header>
+
+    <div id="admin-auth-overlay" class="auth-overlay">
+      <div class="auth-box">
+        <h3>Login Admin</h3>
+        <input id="admin-password" type="password" placeholder="Masukkan kata sandi admin" />
+        <div class="auth-actions">
+          <button id="admin-login-btn" type="button">Masuk</button>
+        </div>
+        <p class="auth-note">Kata sandi default: <code>admin123</code> (ubah di script.js untuk produksi)</p>
+      </div>
+    </div>
+
+    <section class="admin-controls" id="admin-controls" aria-hidden="true">
+      <label for="groupCount">Jumlah Kelompok:</label>
+      <input id="groupCount" type="number" min="1" value="3">
+
+      <label for="capacity">Kapasitas per Kelompok:</label>
+      <input id="capacity" type="number" min="1" value="3">
+
+      <div class="btn-row">
+        <button type="button" id="btn-create" onclick="createSession()">Buat Session Baru</button>
+        <button type="button" id="btn-update" onclick="updateSettings()">Update Settings</button>
+        <button type="button" id="btn-reset" onclick="resetMembers()">Reset Semua Anggota</button>
+      </div>
+    </section>
+
+    <h2>Daftar Kelompok</h2>
+    <section id="admin_groups" class="groups-grid" aria-hidden="true"></section>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+</body>
+</html>
