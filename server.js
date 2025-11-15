@@ -100,6 +100,9 @@ app.post("/api/remove-member", (req, res) => {
 // ===== STATIC FILES =====
 app.use(express.static(path.join(__dirname, 'client')));
 
-server.listen(3000, () => {
-  console.log("Server berjalan di http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`Server berjalan di port ${PORT}`);
 });
+
