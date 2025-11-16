@@ -100,9 +100,9 @@ app.post("/api/remove-member", (req, res) => {
 // ===== STATIC FILES =====
 app.use(express.static(path.join(__dirname, 'client')));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server berjalan di port ${PORT}`);
 });
 
