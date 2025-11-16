@@ -1,69 +1,340 @@
-/* RESET */
+/* -------------------- */
+/* 1. RESET & BASE STYLE */
+/* -------------------- */
 body {
-  margin: 0;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f9; /* Latar belakang yang lembut */
+    color: #333;
 }
 
-/* MOBILE-FIRST */
-.group-box, .admin-group-box {
-  border: 1px solid #aaa;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  background: #fff;
-  width: 100%;
-  box-sizing: border-box;
+/* Container untuk membatasi lebar konten utama */
+.container {
+    max-width: 900px;
+    margin: 0 auto; /* Tengah di layar besar */
+    padding: 0 10px;
+}
+
+/* -------------------- */
+/* 2. HEADER & LAYOUT */
+/* -------------------- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee; /* Pemanis */
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Spacer untuk memisahkan elemen header */
+.spacer {
+    flex-grow: 1;
+}
+
+/* Logo Circle */
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #007bff; /* Warna merek */
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Tombol kecil (Theme Toggle) */
+.small-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%; /* Membuat tombol bulat */
+    font-size: 18px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------------------- */
+/* 3. INPUT & BUTTONS */
+/* -------------------- */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Sudut lebih lembut */
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #007bff; /* Garis biru saat fokus */
+    outline: none;
 }
 
 button {
-  padding: 10px 14px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 100%;
+    padding: 10px 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  font-size: 16px;
-  box-sizing: border-box;
+/* Tombol Aksi (Join) */
+.join-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
 }
 
-/* DARK MODE OTOMATIS MENGIKUTI HP */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #111;
-    color: #eee;
-  }
-
-  .group-box, .admin-group-box {
-    background: #1c1c1c;
-    border-color: #444;
-  }
-
-  button {
-    background: #2d2d2d;
-    color: #eee;
-    border: 1px solid #555;
-  }
-
-  input {
-    background: #222;
-    color: #eee;
-    border: 1px solid #555;
-  }
+.join-btn:hover {
+    background-color: #0056b3;
 }
 
-/* RESPONSIVE (HP LEBAR KECIL) */
-@media (max-width: 480px) {
-  body {
-    padding: 15px;
-  }
-  
-  h2 {
+.join-btn:active {
+    transform: translateY(1px);
+}
+
+/* -------------------- */
+/* 4. GROUP CARD LAYOUT (GRID) */
+/* -------------------- */
+.groups-grid {
+    display: grid;
+    /* Membuat layout responsif: min 280px, max 1fr, otomatis mengisi kolom */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Jarak antar kartu */
+    margin-top: 20px;
+}
+
+.group-box, .admin-group-box {
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Bayangan yang bagus */
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: none; /* Hilangkan border 1px sebelumnya */
+}
+
+.group-box:hover {
+    transform: translateY(-5px); /* Efek melayang saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.group-box h3 {
+    margin-top: 0;
+    color: #007bff; /* Warna judul kelompok */
     font-size: 20px;
-  }
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.group-box p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Daftar Anggota */
+.group-box ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.group-box li {
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* -------------------- */
+/* 5. DARK MODE */
+/* -------------------- */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #121212;
+        color: #ddd;
+    }
+
+    .header {
+        border-bottom-color: #333;
+    }
+
+    h1 {
+        color: #eee;
+    }
+
+    .logo-circle {
+        background-color: #55aaff;
+    }
+
+    .small-btn {
+        background: #333;
+        color: #eee;
+    }
+
+    .group-box, .admin-group-box {
+        background: #1e1e1e;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .group-box:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    }
+
+    .group-box h3 {
+        color: #88ccee;
+        border-bottom-color: #333;
+    }
+
+    .group-box p {
+        color: #aaa;
+    }
+
+    .group-box li {
+        background: #282828;
+        color: #ddd;
+    }
+
+    button {
+        background: #333;
+        color: #eee;
+        border: 1px solid #555;
+    }
+
+    .join-btn {
+        background-color: #55aaff;
+        border: none;
+    }
+
+    .join-btn:hover {
+        background-color: #3b8eeb;
+    }
+
+    input {
+        background: #222;
+        color: #eee;
+        border: 1px solid #444;
+    }
+    input:focus {
+        border-color: #55aaff;
+    }
+}
+
+/* -------------------- */
+/* 6. RESPONSIVE (HP LEBAR KECIL) */
+/* -------------------- */
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+/* -------------------- */
+/* ADMIN PANEL SPECIFIC STYLES */
+/* -------------------- */
+
+/* Layout Baris Tombol Admin */
+.btn-row {
+    display: flex;
+    gap: 10px; /* Jarak antar tombol */
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.btn-row button {
+    width: 33.33%; /* Membagi 3 tombol sama rata */
+    padding: 12px 10px;
+}
+
+/* Auth Overlay */
+.auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Latar belakang gelap */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+}
+
+.auth-box h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.auth-actions button {
+    margin-top: 20px;
+    /* Gunakan gaya join-btn untuk tombol login */
+    background-color: #28a745; 
+}
+.auth-actions button:hover {
+    background-color: #1e7e34; 
+}
+
+.auth-note {
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Sembunyikan Kontrol Admin saat belum login */
+[aria-hidden="true"] {
+    display: none !important;
+}
+
+/* Dark Mode untuk Admin */
+@media (prefers-color-scheme: dark) {
+    .auth-box {
+        background: #1e1e1e;
+        color: #eee;
+    }
+    .auth-box h3 {
+        color: #eee;
+        border-bottom-color: #333;
+    }
+    .auth-note {
+        color: #aaa;
+    }
+    .auth-actions button {
+        background-color: #38c172;
+    }
+    .auth-actions button:hover {
+        background-color: #2d8f56;
+    }
 }
